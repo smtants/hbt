@@ -9,7 +9,7 @@
         "port": 3306,
         "username": "root",
         "password": "1258",
-        "database": "ops_hbt",
+        "database": "ops",
         "charset": "utf8"
     },
     "interval": 60

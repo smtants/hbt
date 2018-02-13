@@ -4,7 +4,7 @@
 #   xianwen.zhang
 #   2017-12-21
 
-import os
+import os, io
 import sys
 import json, demjson
 import time  
@@ -87,6 +87,8 @@ class V1_HbtHandler(tornado.web.RequestHandler):
         except Exception as e:
             retJson['res'] = statuscode.API_ABNORMA
             log.lg_write(' ==hbt.v1.hbt== ' + str(e))
+        
+        self.write(retJson)
 
 def init():
     try:
@@ -121,6 +123,8 @@ def check_hbt(interval):
                 if int(time.time()) - endpointsMap.get(key)[2] > interval * 2:
                     #   endpoint is not online
                     mariadbfunc.update_endpoint_status(endpointsMap.get(key)[0])
+                    #   set msg
+                    #   ......
             time.sleep(interval)
     except Exception as e:
         log.lg_write(' ==hbt.check_hbt== ' + str(e))
@@ -131,7 +135,7 @@ def main():
             log.lg_write(' ==hbt.main== cfg.json file is not exists !')
             exit()
 
-        f = open('cfg.json',encoding='utf-8') 
+        f = io.open('cfg.json', 'r', encoding='utf-8') 
         data = json.load(f)
 
         if not data['socket']['post']:

@@ -54,6 +54,12 @@ function stop() {
     echo "$app stoped..."
 }
 
+function upgrade(){
+    stop
+    git pull
+    start
+}
+
 function restart() {
     stop
     sleep 1
@@ -75,7 +81,7 @@ function tailf() {
 }
 
 function help() {
-    echo "start|stop|restart|status|tail|help"
+    echo "start|stop|upgrade|restart|status|tail|help"
 }
 
 if [ "$1" == "" ]; then
@@ -84,6 +90,8 @@ elif [ "$1" == "stop" ];then
     stop
 elif [ "$1" == "start" ];then
     start
+elif [ "$1" == "upgrade" ];then
+    upgrade
 elif [ "$1" == "restart" ];then
     restart
 elif [ "$1" == "status" ];then

@@ -29,6 +29,19 @@ class RouterConfig(tornado.web.Application):
 
 app = RouterConfig()
 
+@app.route(r'/v1/hbt/isok')
+class V1_HbtHandler(tornado.web.RequestHandler):
+    def get(self):
+        retJson  = {}
+        try:
+            retJson['res'] = statuscode.SUCCESS
+            retJson['msg'] = "hbt is ok!"
+        except Exception as e:
+            retJson['res'] = statuscode.API_ABNORMA
+            log.lg_write(' ==hbt.v1.hbt.get== ' + str(e))
+        
+        self.write(retJson)
+
 @app.route(r'/v1/hbt')
 class V1_HbtHandler(tornado.web.RequestHandler):
     def post(self):

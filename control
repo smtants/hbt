@@ -5,7 +5,7 @@ cd $WORKSPACE
 
 mkdir -p log
 
-module=hbt.py
+module=app.py
 app=$module
 conf=cfg.json
 pidfile=log/app.pid

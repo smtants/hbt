@@ -7,8 +7,8 @@
 
 import os, io
 import json
-from smtants.hbt.include import log        
-from smtants.hbt.libs import mariadb  
+from include import log        
+from libs import mariadb  
 
 # 连接mariadb服务器
 # @param    host

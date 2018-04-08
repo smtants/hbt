@@ -7,9 +7,9 @@
 
 import os
 import json
-from smtants.hbt.include import log 
-from smtants.hbt.include import mariadbclient
-from smtants.hbt.include import enumhelpr
+from include import log 
+from include import mariadbclient
+from include import enumhelpr
 
 mariadbclient = mariadbclient.init()
 

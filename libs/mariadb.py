@@ -3,7 +3,7 @@
 
 import os,sys
 import mysql.connector as mariadb
-from smtants.hbt.include import log
+from include import log
 
 class MariaDB:
 

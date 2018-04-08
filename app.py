@@ -11,9 +11,9 @@ import time
 from multiprocessing import Process
 import tornado.ioloop
 import tornado.web
-from smtants.hbt.include import log
-from smtants.hbt.include import mariadbfunc
-from smtants.hbt.include import statuscode
+from include import log
+from include import mariadbfunc
+from include import statuscode
 
 isDebug  = False
 

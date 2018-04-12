@@ -3,7 +3,7 @@
 WORKSPACE=$(cd $(dirname $0); pwd)
 cd $WORKSPACE
 
-mkdir -p ./logs
+sudo mkdir -p ./logs
 
 module=app.py
 app=$module
